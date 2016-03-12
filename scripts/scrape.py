@@ -1,7 +1,10 @@
 from bs4 import BeautifulSoup
 import urllib2
 
-content = urllib2.urlopen('http://stats.espncricinfo.com/ci/engine/team/6.html?class=2;host=1;spanmin1=1+Jan+2000;spanval1=span;template=results;type=team;view=results').read()
+team_no = raw_input('Enter the team number as in cricinfo : ')
+stop_date = raw_input('Enter the stop date : ')
+
+content = urllib2.urlopen('http://stats.espncricinfo.com/ci/engine/team/'+team_no+'.html?class=2;host=1;spanmin1=1+Jan+2000;spanval1=span;template=results;type=team;view=results').read()
 c = BeautifulSoup(content)
 k = c.find_all('table')
 k1 = k[len(k)-4]
@@ -17,6 +20,6 @@ for m in range(1,35):
     if kcols_res1.decode_contents(formatter='html') != 'lost':
         w+=1
     tot+=1
-    if kb[0].decode_contents(formatter='html') == '8 Sep 2007':
+    if kb[0].decode_contents(formatter='html') == stop_date:
         break
 print float(float(w)/float(tot))
