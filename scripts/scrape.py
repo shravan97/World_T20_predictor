@@ -22,4 +22,4 @@ for m in range(1,35):
     tot+=1
     if kb[0].decode_contents(formatter='html') == stop_date:
         break
-print float(float(w)/float(tot))
+print w , ',' , tot
