@@ -4,7 +4,7 @@ import urllib2
 team_no = raw_input('Enter the team number as in cricinfo : ')
 stop_date = raw_input('Enter the stop date : ')
 
-content = urllib2.urlopen('http://stats.espncricinfo.com/ci/engine/team/'+team_no+'.html?class=2;host=1;spanmin1=1+Jan+2000;spanval1=span;template=results;type=team;view=results').read()
+content = urllib2.urlopen('http://stats.espncricinfo.com/ci/engine/team/'+team_no+'.html?class=2;host=4;spanmin1=01+Jan+2000;spanval1=span;template=results;type=team;view=results').read()
 c = BeautifulSoup(content)
 k = c.find_all('table')
 k1 = k[len(k)-4]
